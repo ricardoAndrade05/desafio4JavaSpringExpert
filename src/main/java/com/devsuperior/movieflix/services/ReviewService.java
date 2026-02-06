@@ -1,5 +1,7 @@
 package com.devsuperior.movieflix.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +32,12 @@ public class ReviewService {
 		Review review = new Review(null, dto.getText(), movie, user);
 		review = repository.save(review);
 		return new ReviewDTO(review);
+	}
+
+	@Transactional(readOnly = true)
+	public List<ReviewDTO> findReviewsByIdMovie(Long id) {
+		List<Review> reviews = repository.findAllByMovieId(id);
+		return reviews.stream().map(x -> new ReviewDTO(x)).toList();
 	}
 
 }

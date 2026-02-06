@@ -1,62 +1,78 @@
 package com.devsuperior.movieflix.dto;
 
+import com.devsuperior.movieflix.entities.Movie;
+
 public class MovieDetailsDTO {
 
-    private Long id;
-    private String title;
-    private String subTitle;
-    private Integer year;
-    private String imgUrl;
-    private String synopsis;
-    private GenreDTO genre;
+	private Long id;
+	private String title;
+	private String subTitle;
+	private Integer year;
+	private String imgUrl;
+	private String synopsis;
+	private GenreDTO genre;
 
-    public Long getId() {
-        return id;
-    }
+	public MovieDetailsDTO() {
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public MovieDetailsDTO(Movie movie) {
+		this.id = movie.getId();
+		this.title = movie.getTitle();
+		this.subTitle = movie.getSubTitle();
+		this.year = movie.getYear();
+		this.imgUrl = movie.getImgUrl();
+		this.synopsis = movie.getSynopsis();
+		this.genre = new GenreDTO(movie.getGenre());
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getSubTitle() {
-        return subTitle;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public Integer getYear() {
-        return year;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public void setYear(Integer year) {
-        this.year = year;
-    }
+	public String getSubTitle() {
+		return subTitle;
+	}
 
-    public String getImgUrl() {
-        return imgUrl;
-    }
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
+	}
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
+	public Integer getYear() {
+		return year;
+	}
 
-    public String getSynopsis() {
-        return synopsis;
-    }
+	public void setYear(Integer year) {
+		this.year = year;
+	}
 
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
-    }
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
+	public String getSynopsis() {
+		return synopsis;
+	}
+
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
 
 	public GenreDTO getGenre() {
 		return genre;
